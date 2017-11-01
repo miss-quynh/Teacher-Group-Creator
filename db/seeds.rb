@@ -8,3 +8,4 @@
 quynh = Teacher.create(first_name: "Quynh", last_name: "Nguyen", email: "quynh@quynh.com", password: "asdf")
 
 Student.create(first_name: "Roger", last_name: "Li", grade_level: 5, gender: "male", gpa: 1.5, detentions: 12, shirt_size: "XS", teacher: quynh)
+
