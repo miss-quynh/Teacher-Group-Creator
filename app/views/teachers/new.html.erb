@@ -1,0 +1,10 @@
+<div class="sign-up-form">
+  <%= form_for @teacher do |f| %>
+    <%= f.text_field :full_name, placeholder: "Full Name" %>
+    <%= f.email_field :email, placeholder: "Email" %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.submit "Sign Up" %>
+  <% end %>
+</div>
+
+
