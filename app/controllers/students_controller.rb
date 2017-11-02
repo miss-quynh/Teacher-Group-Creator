@@ -4,11 +4,9 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
-
   end
 
   def show
-
   end
 
   def edit
@@ -16,8 +14,6 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      p "*" * 100
-      p student_params
       redirect_to @student
     else
       render 'edit'

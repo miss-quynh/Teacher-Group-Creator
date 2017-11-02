@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20171102001442) do
     t.float "gpa", null: false
     t.integer "detentions"
     t.string "shirt_size"
+    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
