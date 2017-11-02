@@ -1,1 +1,18 @@
-$('.ajax-details').html("<%= escape_javascript(render(partial: 'students/student_details')) %>");
+if(targetIsEmpty() || contentHasChanged()){
+  $('.ajax-details').show()
+  $('.ajax-details').html("<%= escape_javascript(render(partial: 'students/student_details')) %>");
+} else {
+  $('.ajax-details').toggle('fast');
+}
+
+
+function targetIsEmpty() {
+  return $('.ajax-details').html().trim().length === 0
+}
+
+function contentHasChanged() {
+  var oldStudentId = $('.ajax-details table').data('student-id')
+  var newContent = "<%= escape_javascript(render(partial: 'students/student_details')) %>"
+  var newStudentId = $(newContent).data('student-id')
+  return oldStudentId !== newStudentId
+}
