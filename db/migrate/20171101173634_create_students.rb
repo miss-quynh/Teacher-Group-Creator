@@ -8,7 +8,6 @@ class CreateStudents < ActiveRecord::Migration[5.1]
       t.float :gpa, null: false
       t.integer :detentions
       t.string :shirt_size
-      t.references :teacher
 
       t.timestamps
     end

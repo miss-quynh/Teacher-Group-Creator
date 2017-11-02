@@ -13,11 +13,6 @@
     <% if logged_in? %>
       |
       <%= link_to "Sign Out", session_path(session[:teacher_id]), :method => :delete %>
-    <% else %>
-      |
-      <%= link_to "Sign In", root_path %>
-      |
-      <%= link_to "Sign Up", root_path %>
     <% end %>
 
     <%= yield %>

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101173642) do
+ActiveRecord::Schema.define(version: 20171102001442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "teacher_id"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
+    t.index ["teacher_id"], name: "index_enrollments_on_teacher_id"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "first_name", null: false
@@ -23,10 +32,8 @@ ActiveRecord::Schema.define(version: 20171101173642) do
     t.float "gpa", null: false
     t.integer "detentions"
     t.string "shirt_size"
-    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
