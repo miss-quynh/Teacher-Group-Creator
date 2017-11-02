@@ -32,7 +32,7 @@
 </table>
 
 <%= form_with model: @student, local: true do |f|%>
-  <%= f.hidden_field :teacher_id, true %>
+  <%= f.hidden_field :teacher_id %>
   <p>
     <% if @student.assigned_teacher? %>
       <div id="error_explanation">

@@ -15,7 +15,9 @@ class StudentsController < ApplicationController
   end
 
   def update
-
+    p "*" * 100
+    p @current_user
+    @student.teacher_id = @current_user.id
   end
 
   private
