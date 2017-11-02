@@ -16,7 +16,6 @@
 
       <%= link_to "Home", root_path, :class => "nav-text" %>
       <% if logged_in? %>
-        |
         <%= link_to "Sign Out", session_path(session[:teacher_id]), :method => :delete, :class => "nav-text" %>
       <% end %>
     </div>

@@ -11,7 +11,6 @@ class Student < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
-
   def assigned_teacher?
     !!teacher_id
   end
