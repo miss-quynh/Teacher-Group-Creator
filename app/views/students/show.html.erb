@@ -31,7 +31,7 @@
   </tr>
 </table>
 
-<%= form_with model: @student, local: true do |f|%>
+<%= form_with model: @student, url: assign_student_path(@student), local: true do |f|%>
   <%= f.hidden_field :teacher_id %>
   <p>
     <% if flash[:notice] %>

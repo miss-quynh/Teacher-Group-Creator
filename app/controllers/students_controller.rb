@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :assign]
 
   def index
     @students = Student.all
@@ -15,6 +15,10 @@ class StudentsController < ApplicationController
   end
 
   def update
+
+  end
+
+  def assign
     if @student.teacher_id == nil
       @student.teacher_id = current_user.id
       @student.save
