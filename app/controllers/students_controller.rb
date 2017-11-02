@@ -15,7 +15,13 @@ class StudentsController < ApplicationController
   end
 
   def update
-
+    if @student.update(student_params)
+      p "*" * 100
+      p student_params
+      redirect_to @student
+    else
+      render 'edit'
+    end
   end
 
   def assign
@@ -36,7 +42,7 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :grade_level, :gender, :gpa)
+    params.require(:student).permit(:first_name, :last_name, :grade_level, :gender, :gpa, :detentions, :shirt_size)
   end
 
 

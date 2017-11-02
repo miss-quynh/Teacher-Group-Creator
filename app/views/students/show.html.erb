@@ -31,6 +31,8 @@
   </tr>
 </table>
 
+<%= link_to 'Edit Student', edit_student_path %>
+
 <%= form_with model: @student, url: assign_student_path(@student), local: true do |f|%>
   <%= f.hidden_field :teacher_id %>
   <p>
