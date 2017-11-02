@@ -1,11 +1,16 @@
-<div class="sign-up-form">
-  <%= form_for @teacher do |f| %>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-    <%= f.email_field :email, placeholder: "Email" %>
-    <%= f.password_field :password, placeholder: "Password" %>
-    <%= f.submit "Sign Up" %>
-  <% end %>
+<div class="home-image">
+</div>
+
+<div class="home-page">
+  <div class="signup-form">
+    <%= form_for @teacher, :html => { :class => "input-text" } do |f| %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <%= f.email_field :email, placeholder: "Email" %>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.submit "Sign Up" %>
+    <% end %>
+  </div>
 </div>
 
 
