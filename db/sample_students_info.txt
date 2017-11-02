@@ -1,0 +1,11 @@
+first_name,last_name,grade_level,gender,GPA,detentions,shirt_size
+Rosie,Huttington,6,female,4.0,1,small
+Roger,Li,5,male,2.9,5,medium
+Dannie,Clover,5,female,3.5,0,small
+Candice,Swanepole,6,female,3.76,0,small
+Miranda,Kerr,6,female,2.99,0,large
+Chris,Homesworth,7,male,3.01,6,x-large
+Bruce,Lee,7,male,3.48,3,large
+Harold,Kumar,7,male,3.37,4,large
+Tom,Jerry,6,male,3.27,2,medium
+Ferrero,Rocher,5,female,4.0,0,large
