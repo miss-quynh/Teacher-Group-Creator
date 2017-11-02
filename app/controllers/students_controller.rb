@@ -5,19 +5,16 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
 
-    respond_to do |format|
-      format.html { render :index }
-    end
   end
 
   def show
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @student }
-    end
+
   end
 
   def edit
+  end
+
+  def update
 
   end
 
@@ -25,6 +22,10 @@ class StudentsController < ApplicationController
 
   def set_student
     @student = Student.find(params[:id])
+  end
+
+  def student_params
+    params.require(:student).permit(:first_name, :last_name, :grade_level, :gender, :gpa)
   end
 
 

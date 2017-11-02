@@ -27,6 +27,25 @@
   </tr>
   <tr>
     <th>Teacher:</th>
-    <td><%= @student.teacher.full_name %></td>
+    <td><%= @student.teacher_name %></td>
   </tr>
 </table>
+
+<%= form_with model: @student, local: true do |f|%>
+  <%= f.hidden_field :teacher_id, true %>
+  <p>
+    <% if @student.assigned_teacher? %>
+      <div id="error_explanation">
+        <h2>
+           Student is already assigned.
+        </h2>
+      </div>
+    <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Add Student', disabled: @student.assigned_teacher? %>
+  </p>
+
+<% end %>
+
+
