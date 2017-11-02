@@ -1,23 +1,26 @@
-<h1>Welcome</h1>
-
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<div class="home-image">
+</div>
 
-<% if logged_in? %>
-  <div class="hidden display-buttons">
-    <%= link_to "Teachers", teachers_path %> | <%= link_to "Students", students_path %>
-  </div>
-<% else %>
-  <div class="form">
-    <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= f.email_field :email, placeholder: "Email" %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <%= f.submit "Sign In" %>
-    <% end %>
-    <p class="message">Not registered?
-    <%= link_to "Create an account", new_teacher_path %></p>
-  </div>
-<% end %>
+<div class="home-page">
+  <% if logged_in? %>
+    <div class="display-buttons">
+      <%= link_to "Teachers", teachers_path %> | <%= link_to "Students", students_path %>
+    </div>
+  <% else %>
+    <div class="login-form">
+      <%= form_for :session, url: sessions_path, :html => { :class => "input-text" } do |f| %>
+        <%= f.email_field :email, placeholder: "Email" %>
+        <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.submit "Sign In" %>
+      <% end %>
+      <p class="message">Not registered?
+      <%= link_to "Create an account", new_teacher_path %></p>
+    </div>
+  <% end %>
+</div>
+
 
