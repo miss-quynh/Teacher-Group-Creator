@@ -71,3 +71,19 @@ body {
   text-decoration: none;
   padding: 14px 16px;
 }
+
+#wrapper {
+  width: 100%;
+}
+
+.student-names {
+  display: inline-block;
+  float: left;
+}
+
+.ajax-details {
+  width: 70%;
+  margin-right: 40px;
+  padding-top: 15px;
+  float: right;
+}

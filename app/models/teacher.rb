@@ -10,21 +10,41 @@ class Teacher < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def has_students?
+    !self.students.empty?
+  end
+
   def average_gpa
-    gpas = self.students.map { |student| student.gpa }
-    gpas.reduce(:+) / self.students.length
+    if has_students?
+      gpas = self.students.map { |student| student.gpa }
+      gpas.reduce(0, :+) / self.students.length
+    else
+      "n/a"
+    end
   end
 
   def average_detentions
-    detentions = self.students.map { |student| student.detentions }
-    detentions.reduce(:+) / self.students.length
+    if has_students?
+      detentions = self.students.map { |student| student.detentions }
+      detentions.reduce(0, :+) / self.students.length
+    else
+      "n/a"
+    end
   end
 
   def total_detentions
-    self.students.map { |student| student.detentions }.reduce(:+)
+    if has_students?
+      self.students.map { |student| student.detentions }.reduce(:+)
+    else
+      "n/a"
+    end
   end
 
   def total_students
-    self.students.length
+    if has_students?
+      self.students.length
+    else
+      "n/a"
+    end
   end
 end

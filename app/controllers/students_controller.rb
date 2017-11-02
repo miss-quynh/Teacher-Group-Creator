@@ -7,6 +7,10 @@ class StudentsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render 'show' }
+      format.js { render 'student_info' }
+    end
   end
 
   def edit
