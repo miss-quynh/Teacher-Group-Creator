@@ -15,9 +15,14 @@ class StudentsController < ApplicationController
   end
 
   def update
-    p "*" * 100
-    p @current_user
-    @student.teacher_id = @current_user.id
+    if @student.teacher_id == nil
+      @student.teacher_id = current_user.id
+      @student.save
+      redirect_to @student
+    else
+      flash[:notice] = "This student has already been assigned."
+      redirect_to @student
+    end
   end
 
   private
