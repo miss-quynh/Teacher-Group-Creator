@@ -1,6 +1,5 @@
 class Teacher < ApplicationRecord
-  has_many :enrollments
-  has_many :students, through: :enrollments
+  has_many :students
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
