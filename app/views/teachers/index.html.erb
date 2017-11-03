@@ -1,7 +1,12 @@
-<h1>Teachers Index</h1>
+<% if logged_in? %>
 
-<ul>
-  <% @teachers.each do |teacher| %>
-    <li><%= link_to "#{teacher.full_name}", teacher_path(teacher) %></li>
-  <% end %>
-</ul>
+  <h1>Teachers Index</h1>
+
+  <ul>
+    <% @teachers.each do |teacher| %>
+      <li><%= link_to "#{teacher.full_name}", teacher_path(teacher) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h1>Please login to view this page.</h1>
+<% end %>
