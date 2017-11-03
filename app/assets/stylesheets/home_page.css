@@ -9,7 +9,6 @@
 }
 
 .home-image {
- /* background-image: url(<%= asset_path "Hands.jpg" %>);*/
   background-image: url("Hands.jpg");
   background-repeat: no-repeat;
   background-position: left bottom;
