@@ -1,22 +1,36 @@
 require 'rails_helper'
 
 describe TeachersController do
-  let(:teacher) { Teacher.create(first_name: 'Pringles', last_name: 'Green', email: 'pgreen@gmail.com', password: 'pringlesforlife') }
+  let(:teacher) { Teacher.create(first_name: 'YanYan', last_name: 'Chocolate', email: 'ychocolate@gmail.com', password: 'chocochoco') }
+
+  before do
+    session[:teacher_id] = teacher.id
+  end
 
   describe "GET #index" do
-    it "responds with status code 200" do
-      get :index
-      expect(response).to have_http_status 200
+    context "when user is logged in" do
+      it "responds with status code 200" do
+        get :index
+        expect(response).to have_http_status 200
+      end
+
+      it "assigns the teachers list as @teachers" do
+        get :index
+        expect(assigns(:teachers)).to eq(Teacher.all)
+      end
+
+      it "renders the :index template" do
+        get :index
+        expect(response).to render_template(:index)
+      end
     end
 
-    it "assigns the teachers list as @teachers" do
-      get :index
-      expect(assigns(:teachers)).to eq(Teacher.all)
-    end
-
-    it "renders the :index template" do
-      get :index
-      expect(response).to render_template(:index)
+    context "when user is not logged in" do
+      it "responds with status code 302" do
+        session[:teacher_id] = nil
+        get :index
+        expect(response).to have_http_status 302
+      end
     end
   end
 
