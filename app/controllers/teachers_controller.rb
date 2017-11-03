@@ -4,7 +4,6 @@ class TeachersController < ApplicationController
   # teachers#INDEX
   def index
     @teachers = Teacher.all
-    render :"teachers/index"
   end
 
   # teachers#SHOW
