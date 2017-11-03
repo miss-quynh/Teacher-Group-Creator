@@ -64,10 +64,29 @@ describe TeachersController do
         expect(response).to have_http_status 302
       end
 
-      # it "creates a new teacher in the database" do
-      #   expect{
-      #     post :create, params: { teacher: { Teacher.create(first_name: 'Pringles', last_name: 'Green', email: 'pgreen@gmail.com', password: 'pringlesforlife') } } }.to change{Teacher.count}.by(1)
-      # end
+      it "saves the new teacher in the database" do
+        expect{ Teacher.create(first_name: 'Pringles', last_name: 'Green', email: 'pgreens@gmail.com', password: 'pringlesforlife') }.to change{ Teacher.count }.by(1)
+      end
+
+      it "sets a notice that account was successfully created" do
+        expect(flash[:notice]).to eq("Account successfully created.")
+      end
+
+      it "redirects to the root page" do
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    context "when invalid params are passed" do
+      it "does not save the new teacher in the database" do
+        expect{ Teacher.create(first_name: 'Hello', last_name: 'Kitty', email: '', password: 'unoriginal') }.not_to change{ Teacher.count }
+      end
+
+      it "re-renders the :new template" do
+        post :create, params: { teacher: { first_name: 'Pringles', last_name: 'Green', email: '', password: 'pringlesforlife'} }
+
+        expect(response).to render_template :new
+      end
     end
   end
 

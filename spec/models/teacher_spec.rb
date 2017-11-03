@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Teacher, type: :model do
-  let(:teacher) { Teacher.create(first_name: 'Mai', last_name: 'Nguyen', email: 'mai-nguyen@gmail.com', password: 'maimai') }
+  let(:teacher) { Teacher.create(first_name: 'Kit', last_name: 'Kat', email: 'kit-kat@gmail.com', password: 'kitkat') }
   let(:students) { [Student.create(first_name: 'Quynh', last_name: 'Nguyen', grade_level: 12, gender: 'female', gpa: 3.9, teacher_id: teacher.id), Student.create(first_name: 'Huu Phu', last_name: 'Nguyen', grade_level: 9, gender: 'male', gpa: 3.48, teacher_id: teacher.id)] }
 
   describe "associations" do
@@ -33,7 +33,7 @@ RSpec.describe Teacher, type: :model do
 
   describe "#full_name" do
     it "returns the concatenated first and last name" do
-      expect(teacher.full_name).to eq 'Mai Nguyen'
+      expect(teacher.full_name).to eq 'Kit Kat'
     end
   end
 
