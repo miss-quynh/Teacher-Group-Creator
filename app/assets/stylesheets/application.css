@@ -72,6 +72,18 @@ body {
   padding: 14px 16px;
 }
 
+.index-nav-text {
+  float: left;
+  display: block;
+  font-family: serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+
 .display-buttons {
   display: flex;
   margin: 5px;
