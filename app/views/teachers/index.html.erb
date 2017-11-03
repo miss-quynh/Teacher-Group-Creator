@@ -1,10 +1,11 @@
 <% if logged_in? %>
 
-  <h1>Teachers Index</h1>
+  <h1>Teachers</h1>
 
   <ul>
     <% @teachers.each do |teacher| %>
       <li><%= link_to "#{teacher.full_name}", teacher_path(teacher) %></li>
+      <br>
     <% end %>
   </ul>
 <% else %>

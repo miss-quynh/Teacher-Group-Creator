@@ -27,6 +27,16 @@ body {
   padding: 0;
 }
 
+h1  {
+  font-family: 'verdana';
+}
+
+a {
+  font-family: 'verdana';
+  text-decoration: none;
+  color: #4599d1;
+}
+
 .container {
   padding: 16px;
   width: 960px;
