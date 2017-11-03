@@ -1,0 +1,50 @@
+
+<table data-student-id=<%= @student.id %>>
+  <tr>
+    <th>Full Name:</th>
+    <td><%= @student.full_name %></td>
+  </tr>
+  <tr>
+    <th>Grade Level:</th>
+    <td><%= @student.grade_level %></td>
+  </tr>
+  <tr>
+    <th>Gender:</th>
+    <td><%= @student.gender %></td>
+  </tr>
+  <tr>
+    <th>GPA:</th>
+    <td><%= @student.gpa %></td>
+  </tr>
+  <tr>
+    <th># Detentions:</th>
+    <td><%= @student.detentions %></td>
+  </tr>
+  <tr>
+    <th>Shirt Size:</th>
+    <td><%= @student.shirt_size %></td>
+  </tr>
+  <tr>
+    <th>Teacher:</th>
+    <td><%= @student.teacher_name %></td>
+  </tr>
+</table>
+
+
+<%= link_to 'Edit Student', edit_student_path %>
+
+<%= form_with model: @student, url: assign_student_path(@student), remote: true, local: true do |f|%>
+
+  <%= f.hidden_field :teacher_id %>
+  <p>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Add Student' %>
+  </p>
+
+<% end %>

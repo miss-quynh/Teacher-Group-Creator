@@ -1,8 +1,13 @@
 <h1>Students</h1>
 
-<ul>
-  <% @students.each do |student| %>
-    <li><%= link_to student.full_name, student_path(student) %></li>
-  <% end %>
-</ul>
-
+<div id="wrapper">
+  <div class="student-names">
+    <ul>
+      <% @students.each do |student| %>
+        <li><%= link_to student.full_name, student_path(student), remote: true %></li><br>
+      <% end %>
+    </ul>
+  </div>
+  <div class="ajax-details">
+  </div>
+</div>
