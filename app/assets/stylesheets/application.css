@@ -23,8 +23,8 @@ body {
   top: 0;
   position: absolute;
   width: 100vw;
-  margin: 0px;
-  padding: 15px;
+  margin: 10px;
+  padding: 0;
 }
 
 .container {
@@ -70,6 +70,71 @@ body {
   text-align: center;
   text-decoration: none;
   padding: 14px 16px;
+}
+
+.display-buttons {
+  display: flex;
+  margin: 5px;
+  padding: 10px;
+}
+
+.display-buttons a {
+  font-family: serif;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 4px #74ede7;
+  font-size: 55px;
+  text-decoration: none;
+}
+
+#teachers-buttons {
+  background: #4599d1;
+  background-image: -webkit-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -moz-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -ms-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -o-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: linear-gradient(to bottom, #4599d1, #2f75a1);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 3px #5c585c;
+  -moz-box-shadow: 0px 1px 3px #5c585c;
+  box-shadow: 0px 1px 3px #5c585c;
+  padding: 12px 25px 12px 25px;
+  margin-right: 8px;
+}
+
+#teachers-buttons:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+
+#students-buttons {
+  background: #4599d1;
+  background-image: -webkit-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -moz-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -ms-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -o-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: linear-gradient(to bottom, #4599d1, #2f75a1);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 3px #5c585c;
+  -moz-box-shadow: 0px 1px 3px #5c585c;
+  box-shadow: 0px 1px 3px #5c585c;
+  padding: 12px 25px 12px 25px;
+}
+
+#students-buttons:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 }
 
 #wrapper {

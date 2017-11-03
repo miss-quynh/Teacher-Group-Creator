@@ -8,7 +8,12 @@
 <div class="home-page">
   <% if logged_in? %>
     <div class="display-buttons">
-      <%= link_to "Teachers", teachers_path %> | <%= link_to "Students", students_path %>
+      <div id="teachers-buttons">
+        <span><%= link_to "Teachers", teachers_path %></span>
+      </div>
+      <div id="students-buttons">
+        <span><%= link_to "Students", students_path %></span>
+      </div>
     </div>
   <% else %>
     <div class="login-form">
