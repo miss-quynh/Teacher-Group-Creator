@@ -1,6 +1,5 @@
 <div class="home-image">
 </div>
-<%= render 'partials/flash' %>
 <div class="home-page">
   <% if logged_in? %>
     <div class="display-buttons">
@@ -14,6 +13,7 @@
   <% else %>
     <div class="login form">
     <%= render 'sessions/new' %>
+    <%= render 'partials/flash' %>
     </div>
   <% end %>
 </div>

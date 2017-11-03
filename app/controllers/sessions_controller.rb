@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   # sessions#CREATE
   def create
     @teacher = Teacher.find_by(email: session_params[:email])
-    if @teacher.authenticate(session_params[:password])
+    if @teacher && @teacher.authenticate(session_params[:password])
       session[:teacher_id] = @teacher.id
         if @teacher.email == "asdf@asdf.com"
           session[:admin] = true

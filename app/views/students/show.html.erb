@@ -1,6 +1,5 @@
 <% if logged_in? %>
   <h1><%= @student.full_name %></h1>
-
   <%= render 'students/student_details' %>
 <% else %>
  <h1>Please login to view this page.</h1>

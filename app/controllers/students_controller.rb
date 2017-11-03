@@ -5,8 +5,6 @@ class StudentsController < ApplicationController
   before_action :admin, only: [:edit]
 
   def index
-    p "*" * 100
-    p flash[:notice]
     redirect_to root_path unless logged_in?
     @students = Student.all
   end
@@ -19,8 +17,6 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    p "*" * 100
-    p session[:admin]
     redirect_to @student unless session[:admin] == true
   end
 
@@ -47,7 +43,10 @@ class StudentsController < ApplicationController
   end
 
   def unassign
-    if @student.teacher_id != nil
+    if @student.teacher_id == nil
+      redirect_to @students
+    else
+      @student.teacher_id != nil
       @student.teacher_id = nil
       @student.save
       redirect_to @student
