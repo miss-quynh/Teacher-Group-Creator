@@ -24,6 +24,7 @@ body {
   position: absolute;
   width: 100vw;
   margin: 0px;
+  padding: 15px;
 }
 
 .container {
@@ -69,4 +70,20 @@ body {
   text-align: center;
   text-decoration: none;
   padding: 14px 16px;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+.student-names {
+  display: inline-block;
+  float: left;
+}
+
+.ajax-details {
+  width: 70%;
+  margin-right: 40px;
+  padding-top: 15px;
+  float: right;
 }

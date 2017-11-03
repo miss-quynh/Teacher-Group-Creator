@@ -1,51 +1,5 @@
 <h1><%= @student.full_name %></h1>
 
-<table>
-  <tr>
-    <th>Full Name:</th>
-    <td><%= @student.full_name %></td>
-  </tr>
-  <tr>
-    <th>Grade Level:</th>
-    <td><%= @student.grade_level %></td>
-  </tr>
-  <tr>
-    <th>Gender:</th>
-    <td><%= @student.gender %></td>
-  </tr>
-  <tr>
-    <th>GPA:</th>
-    <td><%= @student.gpa %></td>
-  </tr>
-  <tr>
-    <th># Detentions:</th>
-    <td><%= @student.detentions %></td>
-  </tr>
-  <tr>
-    <th>Shirt Size:</th>
-    <td><%= @student.shirt_size %></td>
-  </tr>
-  <tr>
-    <th>Teacher:</th>
-    <td><%= @student.teacher_name %></td>
-  </tr>
-</table>
-
-<%= form_with model: @student, local: true do |f|%>
-  <%= f.hidden_field :teacher_id %>
-  <p>
-    <% if @student.assigned_teacher? %>
-      <div id="error_explanation">
-        <h2>
-           Student is already assigned.
-        </h2>
-      </div>
-    <% end %>
-  </p>
-  <p>
-    <%= f.submit 'Add Student', disabled: @student.assigned_teacher? %>
-  </p>
-
-<% end %>
+<%= render 'student_details' %>
 
 
