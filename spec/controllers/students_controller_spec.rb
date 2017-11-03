@@ -4,12 +4,11 @@ describe StudentsController do
   let(:student) { Student.create(first_name: 'Quynh', last_name: 'Nguyen', grade_level: 12, gender: 'female', gpa: 3.9, detentions: 0, shirt_size: 'small') }
   let(:teacher) { Teacher.create(first_name: 'Dillon', last_name: 'Nguyen', email: 'dillon2@gmail.com', password: 'dillondillon') }
 
+  before do
+    session[:teacher_id] = teacher.id
+  end
 
   describe "GET #index" do
-    before do
-      session[:teacher_id] = teacher.id
-    end
-
     context "when user is logged in" do
       it "responds with status code 200" do
         get :index
@@ -29,10 +28,6 @@ describe StudentsController do
   end
 
   describe "GET #show" do
-    before do
-      session[:teacher_id] = teacher.id
-    end
-
     context "when user is logged in" do
       it "responds with status code 200" do
         get :show, params: { id: student.id }
@@ -52,10 +47,6 @@ describe StudentsController do
   end
 
   describe "GET #edit" do
-    before do
-      session[:teacher_id] = teacher.id
-    end
-
     context "when user is logged in" do
       it "responds with status code 200" do
         get :edit, params: { id: student.id }
@@ -75,10 +66,6 @@ describe StudentsController do
   end
 
   describe "PATCH #update" do
-    before do
-      session[:teacher_id] = teacher.id
-    end
-
     context "when user is logged in" do
       it "responds with status code 302" do
         put :update, params: { student: { first_name: 'Quynh', last_name: 'Nguyen', grade_level: 12, gender: 'female', gpa: 4.40, detentions: 0, shirt_size: 'small' }, id: student.id }
@@ -97,7 +84,6 @@ describe StudentsController do
   describe "PATCH #assign" do
     before do
       session[:teacher_id] = teacher.id
-
       patch :assign, params: { id: student.id }
     end
 
@@ -121,13 +107,6 @@ describe StudentsController do
     end
 
     context "when a user is not logged in" do
-      # it "sends a notice" do
-      #   session[:teacher_id] = nil
-      #   patch :assign, params: { id: student.id }
-
-      #   expect(flash[:notice]).to eq("This page is not available. Please sign in.")
-      # end
-
       it "responds with status code 302" do
         session[:teacher_id] = nil
         patch :assign, params: { id: student.id }
