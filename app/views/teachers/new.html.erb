@@ -2,13 +2,13 @@
 </div>
 
 <div class="home-page">
-  <div class="signup-form">
+  <div class="signup form">
     <%= form_for @teacher, :html => { :class => "input-text" } do |f| %>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
-      <%= f.email_field :email, placeholder: "Email" %>
-      <%= f.password_field :password, placeholder: "Password" %>
-      <%= f.submit "Sign Up" %>
+      <%= f.text_field :first_name, placeholder: "First Name", :class => 'input-text' %>
+      <%= f.text_field :last_name, placeholder: "Last Name", :class => 'input-text' %>
+      <%= f.email_field :email, placeholder: "Email", :class => 'input-text' %>
+      <%= f.password_field :password, placeholder: "Password", :class => 'input-text' %>
+      <%= f.submit "Sign Up", :id => 'signup-button' %>
     <% end %>
   </div>
 </div>

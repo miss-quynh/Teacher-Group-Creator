@@ -29,19 +29,18 @@
   margin: auto;
 }
 
-.login-form, .signup-form {
+.login, .signup {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin: 0 20px 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .input-text {
-  font-family: "Roboto", sans-serif;
+  font-family: serif;
   outline: 1;
   background: #f2f2f2;
   width: 100%;
@@ -50,4 +49,31 @@
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+}
+
+#login-button, #signup-button {
+  background: #4599d1;
+  background-image: -webkit-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -moz-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -ms-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: -o-linear-gradient(top, #4599d1, #2f75a1);
+  background-image: linear-gradient(to bottom, #4599d1, #2f75a1);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 3px #5c585c;
+  -moz-box-shadow: 0px 1px 3px #5c585c;
+  box-shadow: 0px 1px 3px #5c585c;
+  padding: 7px 20px 7px 20px;
+  border: solid #1f628d 2px;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  font-family: serif;
+  font-size: 15px;
+}
+
+.message a {
+  color: #4599d1;
+  text-decoration: none
 }
