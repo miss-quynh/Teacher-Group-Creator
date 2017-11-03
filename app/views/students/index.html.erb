@@ -1,6 +1,6 @@
-<% if logged_in? %>
-  <h1>Students</h1>
 
+  <%= render 'partials/flash' %>
+  <h1>Students</h1>
   <div id="wrapper">
     <div class="student-names">
       <ul>
@@ -12,6 +12,5 @@
     <div class="ajax-details">
     </div>
   </div>
-<% else %>
- <h1>Please login to view this page.</h1>
-<% end %>
+
+
