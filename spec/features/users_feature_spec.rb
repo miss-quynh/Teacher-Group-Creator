@@ -3,7 +3,7 @@ require "rails_helper"
 feature "User management" do
   let(:teacher) { Teacher.create(first_name: 'Broccoli', last_name: 'Green', email: 'vegetable@gmail.com', password: 'healthy') }
 
-  scenario "user log in" do
+  scenario "user logs in" do
     visit root_path
     fill_in 'Email', with: teacher.email
     fill_in 'Password', with: teacher.password
@@ -17,7 +17,7 @@ feature "User management" do
     end
   end
 
-  scenario "user log out" do
+  scenario "user logs out" do
     visit root_path
     fill_in 'Email', with: teacher.email
     fill_in 'Password', with: teacher.password
