@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :students
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :sessions, only: [:create, :destroy]
 
 end

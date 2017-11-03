@@ -12,13 +12,7 @@
     </div>
   <% else %>
     <div class="login-form">
-      <%= form_for :session, url: sessions_path, :html => { :class => "input-text" } do |f| %>
-        <%= f.email_field :email, placeholder: "Email" %>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <%= f.submit "Sign In" %>
-      <% end %>
-      <p class="message">Not registered?
-      <%= link_to "Create an account", new_teacher_path %></p>
+    <%= render 'sessions/new' %>
     </div>
   <% end %>
 </div>
