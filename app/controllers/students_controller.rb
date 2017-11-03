@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
+  # http_basic_authenticate_with name: "admin", password: "unoriginalpassword", only: [:edit]
 
-  before_action :set_student, :authorize, only: [:show, :edit, :update, :destroy, :assign]
+  before_action :set_student, :authorize, only: [:show, :edit, :update, :destroy, :assign, :unassign]
+  before_action :admin, only: [:edit]
 
   def index
     redirect_to root_path unless logged_in?
@@ -15,6 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    redirect_to @student unless session[:admin] == true
   end
 
   def update
@@ -36,6 +39,17 @@ class StudentsController < ApplicationController
     end
   end
 
+  def unassign
+    if @student.teacher_id == nil
+      redirect_to @students
+    else
+      @student.teacher_id != nil
+      @student.teacher_id = nil
+      @student.save
+      redirect_to @student
+    end
+  end
+
   private
 
   def set_student
@@ -47,8 +61,13 @@ class StudentsController < ApplicationController
   end
 
   def authorize
-    redirect_to root_path unless logged_in?
+    flash[:notice] = "You must be logged in to access this page"
+    redirect_back(fallback_location: root_path) if !logged_in?
   end
 
+  def admin
+    flash[:notice] = "You do not have administrative privileges"
+    redirect_back(fallback_location: root_path) if !session[:admin]
+  end
 
 end

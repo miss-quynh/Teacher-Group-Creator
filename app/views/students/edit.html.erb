@@ -33,7 +33,14 @@
     <p>
       <%= f.submit 'Update Details', :id => 'update-button' %>
     </p>
+
   <% end %>
+
+    <%= form_with model: @student, url: unassign_student_path(@student), remote: true, local: true do |f| %>
+        <%= f.hidden_field :teacher_id %>
+        <%= f.submit 'Unassign', :id => 'unassign-button' %>
+    <% end %>
+
 <% else %>
  <h1>Please login to view this page.</h1>
 <% end %>

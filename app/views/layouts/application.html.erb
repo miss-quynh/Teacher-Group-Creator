@@ -17,8 +17,12 @@
       <%= link_to "Home", root_path, :class => "nav-text" %>
       <% if logged_in? %>
         <%= link_to "Sign Out", sessions_path(session[:teacher_id]), :method => :delete, :class => "nav-text" %>
+        <%= link_to "Teachers", teachers_path, :class => "index-nav-text" %>
+        <%= link_to "Students", students_path, :class => "index-nav-text" %>
       <% end %>
     </div>
+
+
 
     <div class="main-content">
       <%= yield %>
