@@ -4,11 +4,24 @@
     <title>TeacherGroupCreator</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="navigation-bar">
+
+      <%= link_to "Home", root_path, :class => "nav-text" %>
+      <% if logged_in? %>
+        <%= link_to "Sign Out", sessions_path(session[:teacher_id]), :method => :delete, :class => "nav-text" %>
+      <% end %>
+    </div>
+
+    <div class="main-content">
+      <%= yield %>
+    </div>
   </body>
 </html>

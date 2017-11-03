@@ -1,0 +1,24 @@
+<h1>Welcome, <%= @teacher.full_name %></h1>
+
+<table border='2px', cellpadding='5'>
+  <tr>
+    <th>Total Students</th>
+    <th>Average GPA</th>
+    <th>Total Detentions</th>
+    <th>Average Detentions</th>
+  </tr>
+  <tr>
+    <td><%= @teacher.total_students %></td>
+    <td><%= @teacher.average_gpa %></td>
+    <td><%= @teacher.total_detentions %></td>
+    <td><%= @teacher.average_detentions %></td>
+  </tr>
+</table>
+
+<h2><u>Student Roster</u></h2>
+<ul>
+  <% @teacher.students.each do |student| %>
+      <li><%= link_to "#{student.full_name}", student %></li>
+      <br>
+  <% end %>
+</ul>

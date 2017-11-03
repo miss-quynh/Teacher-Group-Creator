@@ -1,0 +1,25 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="home-image">
+</div>
+
+<div class="home-page">
+  <% if logged_in? %>
+    <div class="display-buttons">
+      <div id="teachers-buttons">
+        <span><%= link_to "Teachers", teachers_path %></span>
+      </div>
+      <div id="students-buttons">
+        <span><%= link_to "Students", students_path %></span>
+      </div>
+    </div>
+  <% else %>
+    <div class="login form">
+    <%= render 'sessions/new' %>
+    </div>
+  <% end %>
+</div>
+
+
