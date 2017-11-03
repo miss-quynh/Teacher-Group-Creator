@@ -21,10 +21,10 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
       session[:teacher_id] = @teacher.id
-      redirect_to root_path
+      redirect_to root_path, :notice => "Account successfully created."
     else
       @errors = @teacher.errors.full_messages
-      render :"teachers/new"
+      render :new
     end
   end
 
