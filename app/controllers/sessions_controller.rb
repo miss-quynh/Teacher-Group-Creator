@@ -1,27 +1,21 @@
 class SessionsController < ApplicationController
   include SessionsHelper
 
-  # sessions#NEW
-  def new
-
-  end
-
   # sessions#CREATE
   def create
     @teacher = Teacher.find_by(email: session_params[:email])
-    if @teacher
+    if @teacher.authenticate(session_params[:password])
       session[:teacher_id] = @teacher.id
-      redirect_to root_path
+      redirect_to root_path, :notice => "Successfully logged in."
     else
-      flash[:notice] = "Invalid email or password"
-      redirect_to root_path
+      redirect_to root_path, :notice => "Invalid email or password."
     end
   end
 
   # sessions#DESTROY
   def destroy
     session[:teacher_id] = nil
-    redirect_to root_path
+    redirect_to root_path, :notice => "Successfully logged out."
   end
 
   private
