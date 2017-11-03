@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @student = Student.find(params[:id])
     respond_to do |format|
       format.html { render 'show' }
       format.js { render 'student_info' }
@@ -14,6 +15,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @student = Student.find(params[:id])
   end
 
   def update
