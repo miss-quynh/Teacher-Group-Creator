@@ -1,13 +1,13 @@
 class StudentsController < ApplicationController
 
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :assign]
+  before_action :set_student, :authorize, only: [:show, :edit, :update, :destroy, :assign]
 
   def index
+    redirect_to root_path unless logged_in?
     @students = Student.all
   end
 
   def show
-    @student = Student.find(params[:id])
     respond_to do |format|
       format.html { render 'show' }
       format.js { render 'student_info' }
@@ -15,7 +15,6 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Student.find(params[:id])
   end
 
   def update
@@ -45,6 +44,10 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :grade_level, :gender, :gpa, :detentions, :shirt_size)
+  end
+
+  def authorize
+    redirect_to root_path unless logged_in?
   end
 
 

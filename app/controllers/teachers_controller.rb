@@ -1,6 +1,8 @@
 class TeachersController < ApplicationController
   include SessionsHelper
 
+  before_action :authorize, only: [:index, :show, :new, :create]
+
   # teachers#INDEX
   def index
     @teachers = Teacher.all
@@ -33,6 +35,10 @@ class TeachersController < ApplicationController
 
   def teacher_params
     params.require(:teacher).permit(:first_name, :last_name, :email, :password)
+  end
+
+  def authorize
+    redirect_to root_path unless logged_in?
   end
 
 end
