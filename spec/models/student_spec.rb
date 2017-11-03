@@ -53,10 +53,10 @@ RSpec.describe Student, type: :model do
   end
 
   describe "#full_name" do
-    it "returns the concatenated first and last name" do
+    it "returns the concatenated last and first name" do
       @student = Student.new(first_name: 'Quynh', last_name: 'Nguyen')
 
-      expect(@student.full_name).to eq 'Quynh Nguyen'
+      expect(@student.full_name).to eq 'Nguyen, Quynh'
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe Student, type: :model do
 
   describe "#teacher_name" do
     it "assigns a teacher if unassigned" do
-      teacher = Teacher.create(first_name: 'Mai', last_name: 'Nguyen', email: 'mai-nguyen@gmail.com', password: 'maimai')
+      teacher = Teacher.create(first_name: 'Mai', last_name: 'Nguyen', email: 'mai-nguyen-95@gmail.com', password: 'maimai')
       new_student = Student.create(first_name: 'Quynh', last_name: 'Nguyen', grade_level: 12, gender: 'female', gpa: 3.9, teacher_id: teacher.id)
       teacher.students << new_student
 
