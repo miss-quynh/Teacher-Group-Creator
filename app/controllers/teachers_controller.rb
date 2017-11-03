@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
   include SessionsHelper
 
-  before_action :authorize, only: [:index, :show, :new, :create]
+  before_action :authorize, only: [:index, :show]
 
   # teachers#INDEX
   def index

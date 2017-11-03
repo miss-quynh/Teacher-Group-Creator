@@ -30,9 +30,12 @@ class StudentsController < ApplicationController
       @student.teacher_id = current_user.id
       @student.save
       redirect_to @student
-    else
+    elsif @student.teacher_id != nil && logged_in?
       flash[:notice] = "This student has already been assigned."
       redirect_to @student
+    else
+      flash[:notice] = "This page is not available. Please sign in."
+      redirect_to root_path
     end
   end
 
