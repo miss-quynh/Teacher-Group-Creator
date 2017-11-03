@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :students do
     member do
       patch 'assign'
+      patch 'unassign'
     end
   end
 

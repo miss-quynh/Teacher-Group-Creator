@@ -25,7 +25,7 @@ class Student < ApplicationRecord
 
   def self.parse_list(filename)
     CSV.foreach(filename, { :headers => true, :header_converters => :symbol }) do |row|
-      student = self.create(row.to_h)
+      student = self.find_or_create_by(row.to_h)
     end
   end
 
